@@ -1,0 +1,128 @@
+/* https://www.youtube.com/watch?v=bn-DQCifeQQ */
+
+:root{
+    --color-primary-200: #f3EED9;
+    --color-primary-400: #824936;
+
+    --color-neutral-200: #fff;
+    --color-neutral-900: #222C2A;
+
+    --ff-primary: 'Roboto', sans-serif;
+    --ff-secondary: 'Playfair Display', serif;
+}
+
+*, 
+:after,
+:before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--ff-primary);
+    font-weight: 400;
+    font-size: 1.3125rem;
+    line-height: 1.6;
+}
+
+h1,
+h2,
+h3{
+    font-family: var(--ff-secondary);
+    font-weight: 900;
+    line-height: 1;
+}
+
+h1,
+h2,
+h3 ,
+p{
+    margin-bottom: 1em;
+}
+
+.hidden{
+    display: none;
+}
+
+header,
+section{
+    padding: 3rem 0rem;
+}
+
+/* media queries for when the screen is biggger destop / more than the width of 40em since we build the webpage for mobile first */
+@media screen and (min-width: 40em) {
+    header,
+    section{
+        padding: 7rem 0rem;
+    }
+}
+
+img{
+    width: 100%;
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 0rem;
+    background-color: var(--color-neutral-900);
+    color: var(--color-neutral-200);
+}
+
+.main-nav__links{
+    display: flex;
+    justify-content: space-evenly;
+    /* align-items: center; */
+    gap: 5em; 
+}
+
+.container {
+    width: min(90%, 70.5rem);
+    margin: 0 auto; /* centers the section/  div in the middle of the browser */
+}
+
+.container--narrow {
+    width: min(90%, 50rem); /* adjust height and wiidth of theo dicv that has the huge header title so it fit and stretch as the browser window gets smallerf */
+}
+
+.bg-light { 
+    background-color: var(--color-primary-200);
+    color: #222C2A;
+}
+.bg-white { 
+    background-color: var(--color-neutral-200);
+    color: var(--color-neutral-900);
+}
+.bg-dark { 
+    background-color: var(--color-neutral-900);
+    color: var(--color-neutral-200);
+}
+
+.bg-accent {
+    background-color: var(--color-primary-400);
+    color: var(--color-neutral-200);
+}
+
+.text-center {
+    text-align: center;
+}
+
+ .split{
+    display: flex;
+    flex-direction: column;
+} 
+
+/* media queries for when the screen is biggger destop / more than the width of 40em since we build the webpage for mobile first */
+@media screen and (min-width: 40em) {
+    .split{
+        flex-direction: row;
+        gap: 2em;
+    }
+    .split > *{
+        flex: 1; /* 💡 makes all content inside the div the same size */
+        /* flex-basis: 100%; */ /* 💡 can use flex-basis too*/
+    }
+}
+

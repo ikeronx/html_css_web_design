@@ -1,0 +1,166 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: sans-serif;
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+.product{
+    display: grid;
+    grid-template-columns: 250px 1fr 1fr;
+    column-gap: 40px;
+    border: 5px solid black;
+    width: 825px;
+    margin: 50px auto;
+
+    position: relative;
+    width: 900px;
+}
+
+.sale-tag{
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+
+    color: #fff;
+    background-color: red;
+
+    padding: 7px 15px;
+    position: absolute;
+    top: -20px;
+    left: -45px;
+}
+
+.product-title{
+   text-align: center;
+   text-transform: uppercase;
+   background-color: #f4f4f4;
+   padding: 15px;
+   grid-column: 1 / -1;
+}
+
+.post-img{
+    width: 250px;
+    height: 270px;
+}
+
+/* PRODUCT INFORMATION */
+
+/* flex-layout */
+.product-price{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.price{
+    font-size: 24px;
+
+}
+
+.free-shipping{
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: bold;
+    color: #777;
+}
+
+.more-info:link, .more-info:visited{
+    color: black;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.more-info:hover, .more-info:active{
+    text-decoration: none;
+}
+
+.product-colors{
+    display: flex;
+    gap: 10px;
+}
+
+.colors{
+    width:22px;
+    height:22px;
+}
+
+.color-black{
+    background-color:black;
+}
+
+.color-blue{
+    background-color: blue;
+}
+
+.color-red{
+    background-color: red;
+}
+
+.color-yellow{
+    background-color: yellow;
+}
+
+.color-green{
+    background-color:#90cc20;
+}
+
+.color-brown{
+    background-color: #885214;
+}
+
+
+.details-title{
+    text-transform: uppercase;
+    font-size: 16px;
+    margin-top: 20px;
+    margin-bottom:15px;
+}
+
+.details-list{
+    list-style: square;
+    padding-left: 20px;
+}
+
+/* BUTTON */
+
+.add-cart{
+    text-transform: uppercase;
+    background-color: black;
+    color: #fff;
+    width: 100%;
+    padding: 15px 0;
+    border-top: 5px solid black;
+    grid-column: 1 / -1;
+}
+
+.add-cart:hover{
+    background-color: #fff;
+    color: black;
+    cursor: pointer;
+}
+
+/* PAGE LAYOUT */
+.product-layout{
+    margin-right: 40px;
+}
+
+.price-container{
+    flex: 1;
+}
+
+.details-container{
+    flex: 1;
+    padding-right: 40px;
+}
+
+.product-info{ 
+    padding-top: 20px;
+}

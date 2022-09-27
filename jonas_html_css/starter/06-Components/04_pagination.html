@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet"> 
+        <title>Pagination Component</title>
+        <!-- https://www.udemy.com/course/design-and-develop-a-killer-website-with-html5-and-css3/learn/lecture/27512464#questions -->
+
+       <style>
+        /*
+        SPACING SYSTEM (px)
+        2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+
+        FONT SIZE SYSTEM (px) (rem @ 62.5%)
+        10 = 0.500rem | 12 = 0.600rem | 14 = 0.700rem | 16 = 0.800rem | 18 = 0.900rem | 20 = 1rem | 24 = 1.200rem | 30 = 1.500rem | 36 = 1.800rem | 44 = 2.200rem | 52 = 2.600rem | 62 = 3.100rem | 74 = 3.700rem | 86 = 4.300rem | 98 = 4.900rem
+        
+        MAIN COLORS 
+        Savory Website:
+        accent color - #276749
+        body font color - #1b2e32
+
+        Chakra Ui:
+        accent color- #285E61 :#81e6d9; #E6FFFA;
+        body font color - #1A202C  #4A5568 #718096;
+        */
+
+        *, :after, :before{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        /* ------------------------ */
+        /* GENERAL STYLES */
+        /* ------------------------ */
+        body {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            color: #1A202C;
+            line-height: 1;
+            background-color: #202124; 
+            display: grid;
+            place-items: center;
+        }
+
+        .pagination{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background-color: rgb(255, 255, 255);
+
+            margin-top: 200px;
+    }
+
+        .pagination__btn{
+            background-color: #fff;
+            border: none;
+            height: 48px;
+            width: 48px;
+            border: 1px solid #285E61;
+            border-radius: 50%;
+            box-shadow: 0 0px 8px rgba(0, 0, 0, 0.05);
+            cursor: pointer;
+            display: grid;
+            place-items: center;
+        }
+
+        .pagination__btn:hover{
+            background-color: #285E61;
+        }
+
+        .pagination__btn-icon{
+            width: 24px;
+            height: 24px;
+            stroke: #285E61;
+        }
+        .pagination__btn:hover .pagination__btn-icon{
+            stroke: #fff;
+        }
+
+        .pagination__btn-link:link,
+        .pagination__btn-link:visited{
+            height: 36px;
+            width: 36px;
+            font-size: 18px;
+            font-weight: 500;
+            color:#1A202C;
+            text-decoration: none;
+            text-transform: uppercase;
+
+            border-radius: 100%;
+            display: grid;
+            place-items: center;
+        }
+
+        .pagination__btn-link:hover, 
+        .pagination__btn-link:active,
+        .pagination__btn-link.pagination__btn-link--current{
+            color: #fff;
+            background-color: #285E61;
+        }
+
+        .dots{
+            font-weight: 500;
+            color:  #4A5568 ;
+            cursor: pointer;
+        }
+
+        .dots:hover{
+            color: #1A202C;
+        }
+        
+        </style>
+    </head>
+    <body>
+        <div class="pagination">
+            <button class="pagination__btn btn--left"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="pagination__btn-icon">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></button>
+            
+            <a href="#" class="pagination__btn-link">1</a>
+            <a href="#" class="pagination__btn-link">2</a>
+            <a href="#" class="pagination__btn-link pagination__btn-link--current">3</a>
+            <a href="#" class="pagination__btn-link">4</a>
+            <a href="#" class="pagination__btn-link">5</a>
+            <a href="#" class="pagination__btn-link">6</a>
+            <span class="dots">...</span>
+            <a href="#" class="pagination__btn-link">23</a>
+            
+                <button class="pagination__btn  btn--right"> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="pagination__btn-icon">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+            </svg></button>
+        </div>
+        <script defer>
+        </script>
+    </body>
+</html>
+</html>

@@ -1,0 +1,523 @@
+/**************************/
+/* HEADER */
+/**************************/
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--clr-primary-100);
+    
+    /*💡 use height instead of padding because we want the nav to be sticky */
+    height: 9.6rem;
+    padding-inline: 4.8rem;
+}
+
+.logo{
+    height: 2.2rem;
+}
+
+/**************************/
+/* NAVIGATION */
+/**************************/
+.main-nav-list{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 4.8rem;
+}
+
+.main-nav-link:link,
+.main-nav-link:visited{
+    display: inline-block;
+    text-decoration: none;
+    color: var(--clr-grey-300);
+    font-weight: var(--fw-medium);
+    font-size: 1.8rem;
+    transition: all 0.3s;
+}
+
+.main-nav-link:hover,
+.main-nav-link:active{
+    color: var(--clr-primary-500);
+}
+
+/*💡👍🏽 Styling the nav CTA button to action button */
+.main-nav-link.btn.btn--full:link,
+.main-nav-link.btn.btn--full:visited{
+    padding: 1.2rem 2.4rem;
+    color: var(--clr-white);
+    font-size: 1.8rem;
+    font-weight: var(--fw-medium);
+}
+
+/*💡 Alternative approach to style the nav CTA button using the 'nav-cta' class
+.main-nav-link.nav-cta:link,
+.main-nav-link.nav-cta:visited{
+    padding: 1.2rem 2.4rem;
+    border-radius: 9px;
+    color: var(--clr-white);
+    background-color: var(--clr-primary-400);
+}
+.main-nav-link.nav-cta:hover,
+.main-nav-link.nav-cta:active{
+    background-color: var(--clr-primary-500)
+}
+*/
+
+/**************************/
+/* HERO SECTION */
+/**************************/
+.section-hero{
+    background-color: var(--clr-primary-100);
+    padding: 4.8rem 0 9.6rem 0;
+    /* height: auto; */
+}
+
+@media screen and (min-width: 70em) {
+    .section-hero{
+        /* height: 100vh; */
+    }
+}
+
+.hero{
+    max-width: 130rem;
+    margin: 0 auto;
+    padding-inline: 3.2rem;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+@media screen and (min-width: 40em) {
+    .hero{
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+        gap: 9.6rem; 
+    }
+}
+
+.hero-description{
+    font-size: 2rem;
+    line-height: 1.6;
+    margin-bottom: 4.8rem;
+    /* text-align: center; */
+}
+
+@media screen and (min-width: 40em) {
+    .hero-description {
+        /* text-align: left;  */
+    } 
+}
+
+.delivered-meals{
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    gap: 1.6rem;
+    margin-top: 8rem;
+}
+
+.delivered-imgs{
+    display: flex;
+}
+
+.delivered-imgs img{
+    height: 4.8rem;
+    width: 4.8rem;
+    border-radius: 50%;
+    margin-right: -1.6rem;
+    border: 3px solid var(--clr-primary-100);
+}
+
+.delivered-imgs img:last-child{
+    margin: 0rem;
+}
+/* 
+💡 alternative approach to add margin-right: -1.6rem to all img elements except the last one
+.delivered-imgs img:not(:last-child) {
+    margin-right: -1.6rem;
+  } */
+
+.delivered-text{
+    font-size: 1.8rem;
+    font-weight: var(--fw-semi-bold);
+}
+
+.delivered-text span{
+    color: var(--clr-primary-500);
+    font-weight: var(--fw-700);
+}
+
+/**************************/
+/* FEATURED IN SECTION */
+/**************************/
+.section-featured{
+    padding-block: 4.8rem 3.2rem;
+}
+
+.heading-featured-in{
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.75px;
+    font-weight: var(--fw-semi-bold);
+    text-align: center;
+    margin-bottom: 2.4rem;
+    color: #888;
+}
+
+.logos{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.logos img {
+    height: 1.2rem;
+    filter: contrast(0%); 
+    /* filter: brightness(0); */
+    /* opacity: 50%; */
+}
+
+
+ @media screen and (min-width: 40em){
+.logos img {
+    height: 2.4rem;
+    }
+}
+
+@media screen and (min-width: 59em){
+.logos img {
+    height: 3.2rem;
+    } 
+}
+
+/**************************/
+/*  HOW IT WORKS SECTION */
+/**************************/
+.section-how{
+    padding-block: 9.6rem;
+}
+
+.step-text-box{
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+  */
+
+}
+
+.step-number{
+    font-size: 8.6rem;
+    font-weight: var(--fw-semi-bold);
+    color:var(--clr-light-grey-500);
+    margin-bottom: 1.2rem;
+}
+
+.step-description{
+    font-size: 1.8rem;
+    line-height: 1.8;
+}
+
+.step-img-box{
+    display: grid;
+    place-items: center;
+    position: relative;
+}
+
+.step-img-box::before,
+.step-img-box::after{
+    content: '';
+    display: block;
+    border-radius: 50%;
+    position: absolute;
+    z-index: -1;
+    aspect-ratio: 1; /* 👈🏼 creates a perfect square based on the width thats's set.. no need to set a height */
+    /* 💡 alternative approach above.. instead of using padding-bottom you can use: aspect-ratio property to a perfect get square
+    aspect-ration: 1;
+    */
+}
+
+.step-img-box::before{
+    background-color: var(--clr-primary-100);
+    width: 60%;
+    /* height: 60%;  ❌  height property won't work use padding-bottom instead*/
+    /* padding-bottom: 60%; ✅ 60% of parents element width */
+}
+
+.step-img-box::after{
+    background-color: var(--clr-primary-200);
+    width: 45%;
+    /* height: 50%;  ❌  height property won't work use padding-bottom instead*/
+    /* padding-bottom: 45%; ✅ 60% of parents element width */
+}
+
+.step-img{
+    width: 35%;
+}
+
+/**************************/
+/*  MEALS SECTION */
+/**************************/
+.section-meals{
+    padding-block: 9.6rem;
+}
+
+.meal{
+    box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
+    border-radius: 11px;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+.meal:hover{
+    transform: translateY(-1.2rem);
+    box-shadow: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.06);
+}
+
+.meal-content{
+    padding: 3.2rem 4.8rem 4.8rem 4.8rem;
+}
+
+.meal-tags{
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.2rem;
+}
+
+.tag{
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    font-size: 1.2rem;
+    font-weight: var(--fw-semi-bold);
+    text-transform: uppercase;
+    color: var(--clr-grey-300);
+    border-radius: 100px;
+
+}
+
+.tag--vegetarian{
+    background-color: #51cf66;
+}
+
+.tag--vegan{
+    background-color: #94d82d;
+}
+
+.tag--paleo{
+    background-color: #ffd43b;
+
+}
+
+.meal-title{
+    font-size: 2.4rem;
+    color: var(--clr-grey-300);
+    font-weight: var(--fw-semi-bold);
+    margin-bottom: 3.2rem;
+}
+
+.meal-attributes {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    list-style: none;
+
+}
+
+.meal-attribute {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+    font-size:1.8rem;
+}
+
+.meal-icon{
+    font-size: 2.4rem;
+    color: var(--clr-primary-400);
+}
+
+.all-recipes{
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+/**************************/
+/*  TESTIMONIALS SECTION */
+/**************************/
+.section-testimonials{
+    background-color: var(--clr-primary-100);
+    display: grid;
+    grid-template-columns: 55fr 45fr;
+}
+.testimonials-container{
+    padding: 9.6rem;
+}
+
+.testimonials{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 4.8rem;
+    column-gap: 8rem;
+}
+
+.testimonial-img{
+    height: 6.4rem;
+    border-radius: 50%;
+    margin-bottom: 1.2rem;
+}
+
+
+.testimonial-text{
+    font-size: 1.8rem;
+    line-height: 1.8;
+    margin-bottom: 1.6rem;
+}
+
+.testimonial-name{
+    font-size: 1.6rem;
+    color: var(--clr-grey-600);
+}
+
+.gallery{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 1.6rem;
+    padding: 1.6rem;
+    align-items: center;
+    /* height: 90%; 
+    margin-top: 10%; */
+}
+
+.gallery-item{
+    overflow: hidden;
+}
+
+
+.gallery-item img{
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.4s;
+}
+
+.gallery-item img:hover{
+    transform: scale(1.1);
+}
+
+/**************************/
+/*  PRICING SECTION */
+/**************************/
+.section-pricing{
+    padding-block: 9.6rem;
+}
+
+.pricing-plan{
+    padding: 4.8rem;
+    border-radius: 11px;
+    width: 75%;
+}
+
+.pricing-plan--starter{
+    justify-self: end; 
+    /* box-shadow: 0 0 0 2px var(--clr-primary-100); */
+    outline: 2px solid var(--clr-primary-100);
+}
+
+.pricing-plan--complete{
+    background-color: var(--clr-primary-100);
+    position: relative;
+    overflow: hidden;
+}
+
+.pricing-plan--complete::after{
+    content: "Best Value";
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    font-weight: var(--fw-bold);
+    color:  var(--clr-grey-300);
+    background-color: #ffd43b;padding: 0.8rem 8rem;
+    top: 6%;
+    right: -18%;
+    transform: rotate(45deg);
+    position: absolute;
+}
+
+.plan-header{
+    text-align: center;
+    margin-bottom: 4.8rem;
+}
+
+.plan-name{
+    font-size: 2rem;
+    font-weight: var(--fw-semi-bold);
+    text-transform: uppercase;
+    letter-spacing: 0.75px;
+    color: var(--clr-primary-500);
+    margin-bottom: 3.2rem;
+}
+
+.plan-price{
+    font-size: 6.2rem;
+    font-weight: var(--fw-bold);
+    color:  var(--clr-grey-300);
+    margin-bottom: 1.6rem;
+}
+
+.plan-price span{
+    font-size: 3rem;
+    font-weight: var(--fw-semi-bold);
+    color:  var(--clr-grey-300);
+    margin-bottom: 0.8rem;
+}
+
+.plane-text{
+    font-size: 1.6rem;
+    line-height: 1.6;
+    color: var(--clr-grey-600);
+}
+
+.plan-sign-up{
+    text-align: center;
+    margin-top: 4.8rem;
+}
+
+.plan-details{
+    font-size: 1.6rem;
+    line-height: 1.6;
+    text-align: center;
+    /* margin-top: -4.8rem; 💡 alternative approachcan use negative vaules instead on using the helper margin-bottom-md cass on the pricing plan section */ 
+}
+
+.feature-icon{
+    color: var(--clr-primary-400);
+    font-size: 3.2rem; 
+    background-color: var(--clr-primary-100);
+    margin-bottom: 3.2rem;
+    padding: 1.6rem;
+    border-radius: 50%;
+}
+
+.feature-title{
+    font-size: 2.4rem;
+    font-weight: var(--fw-bold);
+    color:  var(--clr-grey-300);
+    margin-bottom: 1.6rem;
+}
+
+.feature-text{
+    font-size: 1.8rem;
+    line-height: 1.8;
+    color: var(--clr-500)
+}
+
+/**************************/
+/*  CTA SECTION */
+/**************************/
+
+
+/* 
+- Font sizes (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98 */
+
+/* 
+- spacing system (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+ */
+

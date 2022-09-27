@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet"> 
+        <title>Carousel Component</title>
+        <!-- https://www.udemy.com/course/design-and-develop-a-killer-website-with-html5-and-css3/learn/lecture/27512454#notes -->
+
+        <style>
+        /*
+        SPACING SYSTEM (px)
+        2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+
+        FONT SIZE SYSTEM (px) (rem @ 62.5%)
+        10 = 0.500rem | 12 = 0.600rem | 14 = 0.700rem | 16 = 0.800rem | 18 = 0.900rem | 20 = 1rem | 24 = 1.200rem | 30 = 1.500rem | 36 = 1.800rem | 44 = 2.200rem | 52 = 2.600rem | 62 = 3.100rem | 74 = 3.700rem | 86 = 4.300rem | 98 = 4.900rem
+        
+        MAIN COLORS 
+        Savory Website:
+        accent color - #276749
+        body font color - #1b2e32
+
+        Chakra Ui:
+        accent color- #285E61 :#81e6d9; #E6FFFA;
+        body font color - #1A202C  #4A5568 #718096;
+        */
+
+        *, :after, :before{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        /* ------------------------ */
+        /* GENERAL STYLES */
+        /* ------------------------ */
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1A202C;
+            line-height: 1;
+            background-color: #202124;
+        }
+        .carousel{
+            height: 350px;
+            width: 850px;
+            margin: 40px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            overflow: hidden;  
+            z-index: 0;
+            position: relative;
+
+        }
+
+        .slider{
+            width: 800px;
+            border-radius: 8px;
+            
+
+            display: grid;
+            place-items: center;
+
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 30px;
+            gap: 70px;
+            position: relative;
+
+
+        }
+
+        .slide{
+            display: flex;
+            align-items: center;
+            gap: 86px;
+            padding: 32px 48px 32px 86px;
+            border-radius: 8px;
+
+            position: absolute; 
+            background-color: #285E61;
+
+        }
+
+        img{
+            height: 200px;
+            border-radius: 8px;
+            transform: scale(1.5);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25); 
+        }
+
+        .testimonial__text{
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 1.5;
+            margin-bottom: 32px;
+
+            color: #81e6d9;
+        }
+
+        .testimonial__author{
+            font-size: 14px;
+            margin-bottom: 4px;
+            color: #81e6d9;
+
+        }
+
+        .testimonial__job{
+            font-size:12px;
+            color: #81e6d9;
+        }
+
+        /* CONTROLS */
+        .btn{
+            background-color: #fff;
+            border: none;
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+            cursor: pointer;
+            display: grid;
+            place-items: center;
+
+            position: absolute;
+            z-index: 3;
+        }
+
+        .btn--left{
+            /* IN RELATION TO PARENT ELEMENT */
+            left: 0;
+            top: 50%;
+
+            /* IN RELATION TO ELEMENT ITSELF */
+            transform: translate(-50%, -50%)
+
+        }
+
+        .btn--right{
+             /* IN RELATION TO PARENT ELEMENT */
+            right: 0;
+            top: 50%;
+            
+             /* IN RELATION TO ELEMENT ITSELF */
+            transform: translate(50%, -50%)
+        }
+
+        .btn-icon{
+            height: 24px;
+            width: 24px;
+            stroke: #285E61;
+        }
+
+        .dots{
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translate(-50%, 160px);
+
+            display: flex;
+            gap: 12px;
+            z-index: 2;
+        }
+
+        .dot{
+            border: 2px solid #285E61;
+            border-radius: 50%;
+            height: 12px;
+            width: 12px;
+            background-color: #fff;
+            cursor: pointer;
+
+        }
+
+        .dot--fill{
+            background-color: #285E61;
+        }
+
+        .dot{
+            background-color: rgb(255, 255, 255);
+        }
+
+        </style>
+    </head>
+    <body>
+        <div class="carousel">
+            <div class="slider">
+                <div class="slide">
+                    <img class='testimonial__img'src="girl.jpg" alt="Customer photo">
+                    <blockquote class="testimonial">
+                        <p class="testimonial__text">Lorem ipsum dolor, sit amet consectetur adipisicing Omnis ipsa quam optio eligendi! Dolorum similique commodi deleniti harum nisi perspiciatis voluptates</p>
+                        <p class="testimonial__author">Rebecca Glasgow</p>
+                        <p class="testimonial__job">Software Engineer at Instagram</p>
+                    </blockquote>
+                </div>
+
+                <!-- <div class="slide">
+                    <img class='image' src="guy.jpg" alt="Customer photo">
+                    <blockquote class="testimonial">
+                        <p class="testimonial__text">Lorem ipsum dolor, sit amet consectetur adipisicing Omnis ipsa quam optio eligendi! Dolorum similique commodi deleniti harum nisi perspiciatis voluptates</p>
+                        <p class="testimonial__author">Corey Malik</p>
+                        <p class="testimonial_job">Data Scientist at Google</p>
+                    </blockquote>
+                </div>
+
+                <div class="slide">
+                    <img src="girl-2.jpg" alt="Customer photo">
+                    <blockquote class="testimonial">
+                        <p class="testimonial__text">Lorem ipsum dolor, sit amet consectetur adipisicing Omnis ipsa quam optio eligendi! Dolorum similique commodi deleniti harum nisi perspiciatis voluptates</p>
+                        <p class="testimonial__author">Jessica Morris</p>
+                        <p class="testimonial_job">Front-End Developer at Netflix</p>
+                    </blockquote>
+                </div> -->
+
+                <button class="btn btn--left">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="btn-icon">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                    </svg>
+                </button>
+                <button class="btn btn--right">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="btn-icon">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                    </svg>
+                </button> 
+                <div class="dots"></div>
+            </div>
+        </div>
+
+        <script defer>
+            // DATA
+            const reviews = [
+            {
+                id: 1,
+                name: "Rebecca Glasgow",
+                job: "Software Engineer at Instagram 🧑🏽‍💻",
+                img:
+                "https://64.media.tumblr.com/cfd6cac0e231470147c069b385eb61b0/3eb23cd9d087e809-88/s400x600/09b6aa0697d2200932dab765d22d0fdf13462335.jpg",
+                text:
+                "Food expert 🍱. Music scholar. Reader. Internet fanatic. Bacon buff 🥓. Entrepreneur. Travel geek. Pop culture ninja. Coffee fanatic. Anime  addict",
+            },
+            {
+                id: 2,
+                name: "Corey Malik",
+                job: "Data Scientist at Google",
+                img:
+                "https://64.media.tumblr.com/a88372f75336a59b3c2702f17d4f7bb4/3eb23cd9d087e809-6c/s400x600/19d6021705fff66b9733c24248900efd81bdce13.jpg",
+                text:
+                "Lorem ipsum dolor, sit amet 🤓 consectetur adipisicing Omnis ipsa quam optio eligendi! Dolorum similique commodi deleniti harum nisi perspiciatis voluptates",
+            },
+            {
+                id: 3,
+                name: "Jessica Paige ✌🏻",
+                job: "Front-End Developer at Netflix 🧑🏼‍💻",
+                img:
+                "https://64.media.tumblr.com/7a1270ee3d3010456e663db235856d8b/3eb23cd9d087e809-a0/s400x600/ab43fb61b4438644c9724c4d2ef1cfce53d3445a.jpg",
+                text:
+                "Lorem ipsum dolor, sit amet consectetur adipisicing Omnis ipsa quam optio eligendi! Dolorum similique commodi deleniti harum nisi perspiciatis voluptates",
+            },
+            ];
+
+            // ELEMENTS
+            const img = document.querySelector(".testimonial__img");
+            const author = document.querySelector(".testimonial__author");
+            const job = document.querySelector(".testimonial__job");
+            const info = document.querySelector(".testimonial__text");
+
+            const btnRight = document.querySelector('.btn--right');
+            const btnLeft = document.querySelector('.btn--left');
+
+            const dotContainer = document.querySelector('.dots')
+
+            let currentItem = 0; 
+
+            window.addEventListener('DOMContentLoaded', () => {
+                renderPerson()
+                createDots()
+            });
+
+            // FUNCTIONS:
+            const renderPerson = () => {
+                    const item = reviews[currentItem];
+                    img.src = item.img; 
+                    author.textContent = item.name;
+                    job.textContent = item.job;
+                    info.textContent = item.text;
+            };
+
+            const goToSlide = (slideNum) => {
+                const item = reviews[slideNum];
+                    img.src = item.img; 
+                    author.textContent = item.name;
+                    job.textContent = item.job;
+                    info.textContent = item.text;
+            }
+
+            const nextPerson = () => {
+                    currentItem++;
+                    if (currentItem > reviews.length - 1) currentItem = 0;
+                    renderPerson();
+            }
+    
+            const prevPerson = () => {
+                    currentItem--;
+                    if (currentItem < 0) currentItem = reviews.length - 1;
+                    renderPerson();
+            };
+  
+            const handleArrKeyClicked = (e) => {
+                if (e.key === 'ArrowLeft') prevPerson()
+                if (e.key === 'ArrowRight') nextPerson()
+            }
+            
+            const createDots = () => {
+                reviews.forEach((_, i) => {
+                dotContainer.insertAdjacentHTML('beforeend',`<button class='dot' data-slide='${i}'>&nbsp;</button>` )
+                } )}
+    
+            //❗️❗️ didn't finish https://www.udemy.com/course/the-complete-javascript-course/learn/lecture/22649003#overview
+            const activateDots = (slide) => {
+                const dots = document.querySelectorAll('dot')
+                console.log(dots);
+            }
+
+            activateDots()
+
+            const handleDotClicked = (e) => {
+                if(e.target.classList.contains('dot') ) {
+                    const {slide} = e.target.dataset
+                    goToSlide(+slide)
+                }
+            }
+            
+            // EVENT HANDLERS:
+            btnRight.addEventListener('click', nextPerson);
+            btnLeft.addEventListener('click', prevPerson);
+            document.addEventListener('keydown', handleArrKeyClicked)
+            dotContainer.addEventListener('click', handleDotClicked)
+
+            // JONAS JS CAROUSEL
+        //     const  slider = document.querySelector('.carousel')
+        //     const  slides = document.querySelectorAll('.slide')
+        //     const dots = document.querySelectorAll('.dot')
+        //     const btnRight = document.querySelector('.btn--right');
+        //     const btnLeft = document.querySelector('.btn--left');
+
+        //     let curSlide = 0;
+        //     const maxSlide = slides.length;
+
+        //     const goToSlide = function (slide) {
+        //         slides.forEach((s, i) => {
+        //             s.style.transform = `translateX(${100 * (i - slide)}%)`
+        //         })
+        // };
+
+        // const nextSlide = function () {
+        //         if (curSlide === maxSlide - 1) {
+        //                 curSlide = 0;
+        //         } else if (!curSlide === 0) {
+                    
+                        
+        //         } else {
+        //             curSlide++;
+        //         }
+
+        //         goToSlide(curSlide);
+        // };
+
+
+        // const prevSlide = function () {
+        //         if (curSlide === 0) {
+        //                 curSlide = maxSlide - 1;
+        //         } else {
+        //                 curSlide--;
+        //         }
+        //         goToSlide(curSlide);
+        // };
+
+        // btnRight.addEventListener('click', nextSlide);
+        // btnLeft.addEventListener('click', prevSlide);
+        </script>
+    </body>
+</html>
+</html>
